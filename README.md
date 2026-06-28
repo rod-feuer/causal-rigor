@@ -61,7 +61,7 @@ For project-level only (not machine-wide): the hook and `.claude/settings.json` 
 
 ---
 
-## Rung 3 — The skill (`skills/causal-panel-eval/SKILL.md`)
+## Rung 3 — The causal skill (`skills/causal-panel-eval/SKILL.md`)
 
 An on-demand deep audit via five causal-inference lenses: Pearl (graphical models / DAG), Rubin (potential outcomes), Heckman (selection bias), Cartwright (external validity), Bradford Hill (association→causation criteria).
 
@@ -76,15 +76,31 @@ cp skills/causal-panel-eval/SKILL.md ~/.claude/skills/causal-panel-eval/SKILL.md
 
 ---
 
+## Rung 4 — The framework skill (`skills/framework-check/SKILL.md`)
+
+An on-demand audit via five logic lenses: Aristotle (definitional consistency), Minto (MECE — mutually exclusive / collectively exhaustive), Popper (scope and implicit universals), Wittgenstein (ordinary-language drift), Lakoff (unintended framing inferences).
+
+Use when publishing a piece that introduces a taxonomy, model, or named set of categories. Catches the structural/definitional error class that the causal panel isn't designed for — e.g. a category that implies dependencies it hasn't earned, or framing that telegraphs a structural relationship the author didn't intend. Invoke with `/framework-check`.
+
+**Install:**
+
+```bash
+mkdir -p ~/.claude/skills/framework-check
+cp skills/framework-check/SKILL.md ~/.claude/skills/framework-check/SKILL.md
+```
+
+---
+
 ## The ladder
 
 | Rung | What it is | When it fires | Cost |
 |------|-----------|---------------|------|
 | 1 — Nudge | CLAUDE.md rule | Every turn with a causal claim | Zero — in-pass |
 | 2 — Hook | Stop hook | Automatically on session end | Near-zero — shell script |
-| 3 — Skill | Five-lens panel | On demand | One LLM call |
+| 3 — Causal skill | Five-lens causal panel | On demand | One LLM call |
+| 4 — Framework skill | Five-lens logic panel | On demand | One LLM call |
 
-Rung 1+2 catch most cases cheaply. Rung 3 is for claims where being wrong matters.
+Rung 1+2 catch most cases cheaply. Rungs 3+4 are for claims and frameworks where being wrong matters.
 
 ---
 
