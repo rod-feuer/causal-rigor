@@ -1,6 +1,6 @@
 # causal-rigor
 
-A three-rung system for catching and correcting causal reasoning errors in Claude Code sessions. Built to separate *what's causally supported* from *what's a plausible story* — the most common form of performed rigor in business and content.
+A four-rung system for catching and correcting reasoning errors in Claude Code sessions. Built to separate *what's causally supported* from *what's a plausible story* — the most common form of performed rigor in business and content.
 
 Each rung is independent. Install one, some, or all.
 
